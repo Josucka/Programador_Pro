@@ -1,4 +1,4 @@
-﻿using static ExerciciosPrimeiraSemana.Placa;
+﻿using static ExerciciosPrimeiraSemana.Objeto.Placa;
 
 class Program
 {

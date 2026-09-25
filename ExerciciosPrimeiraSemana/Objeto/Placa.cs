@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExerciciosPrimeiraSemana;
+namespace ExerciciosPrimeiraSemana.Objeto;
 public class Placa
 {
     public class Placas
