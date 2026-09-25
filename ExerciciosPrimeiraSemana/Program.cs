@@ -4,6 +4,7 @@ class Program
 {
     static void Main()
     {
+        //Armazena varios valores do mesmo tipo.
         List<Placas> placas = new List<Placas>()
         {
             new Placas {Distacia = 0, Texto = "Bem vindo"},
@@ -24,8 +25,10 @@ class Program
             new Placas {Distacia = 15, Texto = "Ate que enfim"}
         };
 
+        //Guarda valores na memoria, e ordena com a funçao OrderBy, que ordena os valores de acordo com a propriedade Distacia.
         var ordenadas = placas.OrderBy(p => p.Distacia);
 
+        //Exibe os valores ordenados na tela.
         foreach (var placa in ordenadas)
         {
             Console.WriteLine(placa.Texto);
