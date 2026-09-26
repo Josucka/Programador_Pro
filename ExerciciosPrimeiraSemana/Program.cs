@@ -1,38 +1,16 @@
-﻿using static ExerciciosPrimeiraSemana.Objeto.Placa;
+﻿using ExerciciosPrimeiraSemana.Calculadora;
 
-class Program
+
+
+internal partial class Program
 {
     static void Main()
     {
-        //Armazena varios valores do mesmo tipo.
-        List<Placas> placas = new List<Placas>()
-        {
-            new Placas {Distacia = 0, Texto = "Bem vindo"},
-            new Placas {Distacia = 1, Texto = "1Km"},
-            new Placas {Distacia = 2, Texto = "Obras"},
-            new Placas {Distacia = 4, Texto = "3Km"},
-            new Placas {Distacia = 3, Texto = "2Km"},
-            new Placas {Distacia = 5, Texto = "Escola"},
-            new Placas {Distacia = 6, Texto = "4Km"},
-            new Placas {Distacia = 8, Texto = "6Km"},
-            new Placas {Distacia = 7, Texto = "5Km"},
-            new Placas {Distacia = 9, Texto = "7Km"},
-            new Placas {Distacia = 11, Texto = "9Km"},
-            new Placas {Distacia = 10, Texto = "8Km"},
-            new Placas {Distacia = 12, Texto = "10Km"},
-            new Placas {Distacia = 13, Texto = "11Km"},
-            new Placas {Distacia = 14, Texto = "12Km"},
-            new Placas {Distacia = 15, Texto = "Ate que enfim"}
-        };
 
-        //Guarda valores na memoria, e ordena com a funçao OrderBy, que ordena os valores de acordo com a propriedade Distacia.
-        var ordenadas = placas.OrderBy(p => p.Distacia);
+        var calculo = new Calculo();
+        calculo.Executar();
 
-        //Exibe os valores ordenados na tela.
-        foreach (var placa in ordenadas)
-        {
-            Console.WriteLine(placa.Texto);
-        }
+        OrderByList.Executar();
     }
 }
 
