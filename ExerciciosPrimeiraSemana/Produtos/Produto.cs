@@ -1,29 +1,35 @@
 ﻿
 namespace ExerciciosPrimeiraSemana.Exercicio1
 {
-    public class Produtos
+    // A classe Produtos representa um produto com propriedades
+    public class Produtos 
     {
+        // Propriedades da classe Produtos
         public string Nome { get; set; }
         public int Quantidade { get; set; }
         public decimal Preco { get; set; }
 
-        //criar uma instância da classe Produtos para aplicar o desconto ao produto específico
+        //Aqui um metodo que aplica um desconto ao preço do produto
         public decimal AplicarDesconto(decimal percentualDesconto)
         {
             return Preco - (Preco * percentualDesconto / 100);
         }
     }
 
-    // A classe Produto é uma classe estática que contém métodos relacionados à exibição de detalhes de produtos.
-    // Ela possui o método ExibirDetalhes, que recebe um objeto do tipo Produtos como parâmetro e chama o método ExecutarList para exibir os detalhes dos produtos no console.
-    // O método ExecutarList cria uma lista de produtos, percorre essa lista usando um foreach e exibe as propriedades Nome, Quantidade e Preco de cada produto formatadas no console.
+    // A classe ProdutoServices é uma classe estática que contém métodos relacionados à exibição de detalhes de produtos.
+    // ela possui o método ExibirDetalhes, que recebe uma funçao ExecutarList() para exibir os detalhes dos produtos no console.
     public static class ProdutoServices
     {
+        // O método ExibirDetalhes recebe um objeto do tipo Produtos como parâmetro
+        // e chama o método ExecutarList para exibir os detalhes dos produtos no console.
         public static void ExibirDetalhes(Produtos produto)
         {
             ExecutarList();
         }
 
+        // O método ExecutarList é um tipo list,
+        // percorre essa lista usando um foreach e exibe as propriedades
+        // Nome, Quantidade e Preco de cada produto formatadas no console.
         public static List<Produtos> ExecutarList()
         {
             List<Produtos> produtos = new List<Produtos>()
@@ -47,11 +53,10 @@ namespace ExerciciosPrimeiraSemana.Exercicio1
                                   $"Quantidade: {produto.Quantidade}, " +
                                   $"Preço: {produto.Preco}");
             }
-            //inside: é necessario o foreach para percorrer a lista de produtos e exibir os detalhes de cada produto no console. O foreach itera sobre cada objeto da lista produtos,
+            //inside: é necessario o foreach para percorrer a lista de produtos e exibir os detalhes de cada produto no console.
+            //O foreach itera sobre cada objeto da lista produtos,
             //permitindo acessar suas propriedades Nome, Quantidade e Preco para exibição formatada.
             return produtos;
-        }
-
-       
+        }       
     }
 }

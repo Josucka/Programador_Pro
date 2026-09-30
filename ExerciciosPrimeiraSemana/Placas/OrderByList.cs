@@ -1,17 +1,21 @@
 ﻿
-//É uma instancia desse molde, a classe é o projeto , e o objeto é o produto criado.
+//A classe define o que um Objeto tem.
 public class Placas
-    {
-        public int Distancia { get; set; }
-        public string Texto { get; set; }
-    }
+{
+    //Aqui as propriedades do Objeto 
+    public int Distancia { get; set; }
+    public string Texto { get; set; }
+}
 
 
+//Classe que contem o metodo Executar()
 class OrderByList
 {
+    //O metodo Executar é estatico, ou seja,
+    //pode ser chamado diretamente sem a necessidade de criar uma instancia da classe.
     public static void Executar()
     {
-        //Armazena varios valores do mesmo tipo.
+        //variavel do tipo list, que armazena varios valores do mesmo tipo.
         List<Placas> placas = new List<Placas>()
         {
             new Placas {Distancia = 0, Texto = "Bem vindo"},
@@ -32,7 +36,8 @@ class OrderByList
             new Placas {Distancia = 14, Texto = "12Km"},
         };
 
-        //Guarda valores na memoria, e ordena com a funçao OrderBy, que ordena os valores de acordo com a propriedade Distancia.
+        //Guarda valores na memoria, e ordena com o metodo OrderBy,
+        //que ordena os valores de acordo com a propriedade Distancia.
         var ordenadas = placas.OrderBy(p => p.Distancia);
         //Exibe os valores ordenados na tela.
         foreach (var placa in ordenadas)

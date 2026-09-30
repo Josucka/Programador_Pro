@@ -1,13 +1,16 @@
-﻿
-namespace ExerciciosPrimeiraSemana.Calculadora;
+﻿namespace ExerciciosPrimeiraSemana.Calculadora;
+
+//Uma classe simples
 public class Calculo
 {
+    //Variaveis para armazenar os números e a operação
     double numero1;
     double numero2;
     string operacao;
     double resultado = 0;
 
-    public void Executar()
+    //Metodo que executa a calculadora
+    public void ExecutarCalculadora()
     {
         Console.Write("Digite o primeiro número: ");
         if (!double.TryParse(Console.ReadLine(), out numero1))
@@ -53,6 +56,7 @@ public class Calculo
         Console.WriteLine($"Resultado: {resultado}");
     }
 
+    //Metodos privados para realizar as operações
     private double Soma(double a, double b)
     {
         return a + b;
