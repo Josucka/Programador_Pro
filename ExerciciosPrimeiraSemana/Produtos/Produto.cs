@@ -1,5 +1,4 @@
-﻿
-namespace ExerciciosPrimeiraSemana.Exercicio1
+﻿namespace ExerciciosPrimeiraSemana.Exercicio1
 {
     // A classe Produtos representa um produto com propriedades
     public class Produtos 
@@ -32,6 +31,7 @@ namespace ExerciciosPrimeiraSemana.Exercicio1
         // Nome, Quantidade e Preco de cada produto formatadas no console.
         public static List<Produtos> ExecutarList()
         {
+            //var desconto = new Aleatorio();
             List<Produtos> produtos = new List<Produtos>()
             {
                 new Produtos { Nome = "Notebook", Quantidade = 10, Preco = 2500.00m },
@@ -46,12 +46,13 @@ namespace ExerciciosPrimeiraSemana.Exercicio1
                 // apenas ao produto.Nome específico durante a iteração da lista de produtos.
                 if (produto.Nome == "Mouse")
                 {
-                    produto.Preco = produto.AplicarDesconto(30); 
+                    produto.Preco = produto.AplicarDesconto(20); 
                 }
 
                 Console.WriteLine($"Nome: {produto.Nome}, " +
                                   $"Quantidade: {produto.Quantidade}, " +
                                   $"Preço: {produto.Preco}");
+                
             }
             //inside: é necessario o foreach para percorrer a lista de produtos e exibir os detalhes de cada produto no console.
             //O foreach itera sobre cada objeto da lista produtos,

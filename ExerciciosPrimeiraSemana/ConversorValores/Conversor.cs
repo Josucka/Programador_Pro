@@ -1,4 +1,6 @@
-﻿namespace ExerciciosPrimeiraSemana.ConversorValores
+﻿using ExerciciosPrimeiraSemana.Calculadora;
+
+namespace ExerciciosPrimeiraSemana.ConversorValores
 {
     internal class Conversor
     {
@@ -13,16 +15,18 @@
         // método para executar o conversor de valores
         public static void Executar()
         {
-            
             //variavel para controlar se o usuário deseja continuar ou não
             bool continuar = true;
 
             //uma condicional loop para continuar executando o programa enquanto o usuário desejar
             while (continuar)
             {
+                //metodo statico nao precisa ser referenciado por "new" para ser instanciado, apenas pelo nome da classe
+                //esta sendo chamado dentro do loop para que o usuário possa realizar várias operações sem precisar reiniciar o programa
+                double conta = Calculo.ExecutarCalculadora();
+               
                 //metodos de entrada e saída de dados para o usuário
-                //Console.WriteLine("Digite o valor em reais: ");
-                double valorReais = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine($"Value a ser convertido: {conta:F2}");
                 Console.WriteLine("Escolha a moeda para conversão: ");
                 Console.WriteLine("1 - Dólar");
                 Console.WriteLine("2 - Euro");
@@ -34,13 +38,13 @@
                 switch (opcao)
                 {
                     case 1:
-                        Console.WriteLine($"O valor em Dólar é: {ConverteDolar(valorReais):F2}");
+                        Console.WriteLine($"O valor em Dólar é: {ConverteDolar(conta):F2}");
                         break;
                     case 2:
-                        Console.WriteLine($"O valor em Euro é: {ConverteEuro(valorReais):F2}");
+                        Console.WriteLine($"O valor em Euro é: {ConverteEuro(conta):F2}");
                         break;
                     case 3:
-                        Console.WriteLine($"O valor em Libra é: {ConverteLibra(valorReais):F2}");
+                        Console.WriteLine($"O valor em Libra é: {ConverteLibra(conta):F2}");
                         break;
                     default:
                         Console.WriteLine("Opção inválida.");
@@ -50,23 +54,26 @@
                 //pergunta ao usuário se deseja realizar outra conversão
                 Console.WriteLine("Deseja realizar outra conversão? (0/1)");
                 string resposta = Console.ReadLine().ToUpper();
+               
                 continuar = resposta == "1";
             }
             Console.WriteLine("Programa encerrado.");
         }
 
         //métodos privados para realizar as conversões
-        private static double ConverteDolar(double valorReais)
+        #region
+        private static double ConverteDolar(double calculo)
         {
-            return  valorReais / Moedas.Dolar;
+            return  calculo / Moedas.Dolar;
         }
-        private static double ConverteEuro(double valorReais)
+        private static double ConverteEuro(double calculo)
         {
-            return valorReais / Moedas.Euro;
+            return calculo / Moedas.Euro;
         }
-        private static double ConverteLibra(double valorReais)
+        private static double ConverteLibra(double calculo)
         {
-            return valorReais / Moedas.Libra;
+            return calculo / Moedas.Libra;
         }
+        #endregion
     }
 }

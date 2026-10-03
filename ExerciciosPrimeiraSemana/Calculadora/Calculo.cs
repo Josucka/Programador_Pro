@@ -3,20 +3,19 @@
 //Uma classe simples
 public class Calculo
 {
-    //Variaveis para armazenar os números e a operação
-    double numero1;
-    double numero2;
-    string operacao;
-    double resultado = 0;
-
     //Metodo que executa a calculadora
-    public void ExecutarCalculadora()
+    public static double ExecutarCalculadora()
     {
+        //Variaveis para armazenar os números e a operação
+        double numero1;
+        double numero2;
+        string operacao;
+        double resultado;
+
         Console.Write("Digite o primeiro número: ");
         if (!double.TryParse(Console.ReadLine(), out numero1))
         {
             Console.WriteLine("Entrada inválida.");
-            return;
         }
         
         Console.Write("Digite a operação (+, -, *, /): ");
@@ -26,13 +25,12 @@ public class Calculo
         if (!double.TryParse(Console.ReadLine(), out numero2))
         {
             Console.WriteLine("Entrada inválida.");
-            return;
         }
 
         switch (operacao)
         {
             case "+":
-                resultado = Soma(numero1, numero2);
+                resultado = Soma(numero1,  numero2);
                 break;
             case "-":
                 resultado = Subtracao(numero1, numero2);
@@ -44,37 +42,39 @@ public class Calculo
                 if (numero2 == 0)
                 {
                     Console.WriteLine("Divisão por zero.");
-                    return;
                 }
                 resultado = Divisao(numero1, numero2);
                 break;
             default:
                 Console.WriteLine("Operação inválida.");
-                return;
+                return 0;
         }
-
-        Console.WriteLine($"Resultado: {resultado}");
+        
+        return resultado;
     }
 
     //Metodos privados para realizar as operações
-    private double Soma(double a, double b)
+    #region
+    private static double Soma(double a, double b)
     {
         return a + b;
     }
 
-    private double Subtracao(double a, double b)
+    private static double Subtracao(double a, double b)
     {
         return a - b;
     }
 
-    private double Multiplicacao(double a, double b)
+    private static double Multiplicacao(double a, double b)
     {
         return a * b;
     }
 
-    private double Divisao(double a, double b)
+    private static double Divisao(double a, double b)
     {
         return a / b;
     }
+
+    #endregion
 }
 
