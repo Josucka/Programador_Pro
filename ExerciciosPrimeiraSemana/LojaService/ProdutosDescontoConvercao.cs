@@ -5,6 +5,8 @@ using ExerciciosPrimeiraSemana.NumeroAleatorio;
 
 namespace ExerciciosPrimeiraSemana.LojaService
 {
+    //O exercicio é interagir com o cliente para escolher um produto da lista de produtos, verificar se o produto existe na lista,
+    //perguntar ao cliente qual moeda deseja utilizar para conversão e exibir o valor convertido do produto escolhido.
     internal class ProdutosDescontoConvercao
     {
         Aleatorio aleatorio = new Aleatorio();
