@@ -2,6 +2,7 @@
 using ExerciciosPrimeiraSemana.Exercicio1;
 using ExerciciosPrimeiraSemana.ConversorValores;
 using ExerciciosPrimeiraSemana.NumeroAleatorio;
+using ExerciciosPrimeiraSemana.LojaService;
 
 
 
@@ -17,8 +18,8 @@ internal partial class Program
         //Console.WriteLine(calculo);
         #endregion
 
-        var numero = new Aleatorio(); 
-        numero.Executar();
+        //var numero = new Aleatorio(); 
+        //numero.Executar();
 
         //o exercicio aqui esta em criar uma instancia da classe Conversor
         //a instancia da classe Conversor é criada e o metodo Executar
@@ -33,12 +34,14 @@ internal partial class Program
 
         //o exercicio aqui esta em criar uma instancia da classe Produtos e
         //chamar o metodo ExibirDetalhes passando a instancia criada como parametro"produto"
-        var produto = new Produtos(); // Aqui estamos intaciando o Objeto da classe Produtos
-        ProdutoServices.ExibirDetalhes(produto);
+        //var produto = new Produtos(); // Aqui estamos intaciando o Objeto da classe Produtos
+        //ProdutoServices.ExibirDetalhes(produto);
+
+        ProdutosDescontoConvercao.Executar();
 
 
-        
-        
+
+
     }
 }
 

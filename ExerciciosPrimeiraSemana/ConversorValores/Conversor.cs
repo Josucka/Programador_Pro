@@ -62,15 +62,15 @@ namespace ExerciciosPrimeiraSemana.ConversorValores
 
         //métodos privados para realizar as conversões
         #region
-        private static double ConverteDolar(double calculo)
+        public static double ConverteDolar(double calculo)
         {
             return  calculo / Moedas.Dolar;
         }
-        private static double ConverteEuro(double calculo)
+        public static double ConverteEuro(double calculo)
         {
             return calculo / Moedas.Euro;
         }
-        private static double ConverteLibra(double calculo)
+        public static double ConverteLibra(double calculo)
         {
             return calculo / Moedas.Libra;
         }
