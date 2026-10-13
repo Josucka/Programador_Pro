@@ -41,15 +41,17 @@ internal partial class Program
         //ProdutoServices.ExibirDetalhes(produto);
 
         //ProdutosDescontoConvercao.Executar();
-       
+
+
+        //o exercicio aqui esta em criar uma instancia da classe ServiceNota e armazenar no banco de dados
+        //primeiro é necessário testar a conexão com o banco de dados e criar o banco e a tabela caso não existam
         TestDB.TestarConexao();
         TestDB.CriarBancoETabela();
-        //Aluno aluno = new Aluno();
+        //depois é necessário criar uma instancia da classe ServiceNota e chamar o metodo Executar
+        //para obter os dados depois armazenar no banco de dados
         var serviceNota = new ServiceNota();
         serviceNota.Executar();
 
-        //AlunoRepository.SalvarAluno(aluno);
-        //AlunoRepository.ListarAlunos();
 
 
 

@@ -1,12 +1,16 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using ExerciciosPrimeiraSemana.Config;
+using Microsoft.Data.SqlClient;
 
 namespace ExerciciosPrimeiraSemana.BoletimEstudante.Date
 {
+    // Classe responsável por criar o banco de dados e a tabela Alunos, caso ainda não existam.
+    //chamada de TestDB.CriarBancoETabela() no Program.cs garante que o banco e a tabela existam antes de qualquer operação.
     internal class TestDB
     {
+        // Método que cria o banco de dados JosuckDB e a tabela Alunos, caso ainda não existam.
         public static void CriarBancoETabela()
         {
-            using var conn = new SqlConnection(ConectionDB.StringConexao);
+            using var conn = new SqlConnection(Configuracao.ConnectionString);
             conn.Open();
             // Cria o banco caso ainda não exista
             using (var cmd = new SqlCommand(
@@ -35,11 +39,13 @@ namespace ExerciciosPrimeiraSemana.BoletimEstudante.Date
             Console.WriteLine("Banco e tabela garantidos.");
         }
 
+        // Método que testa a conexão com o banco de dados.
         public static void TestarConexao()
         {
             try
             {
-                using var conn = new SqlConnection(ConectionDB.StringConexao);
+                // Tenta abrir a conexão com o banco de dados usando a string de conexão definida em Configuracao.ConnectionString
+                using var conn = new SqlConnection(Configuracao.ConnectionString);
                 conn.Open();
                 Console.WriteLine("Conexão OK!");
             }

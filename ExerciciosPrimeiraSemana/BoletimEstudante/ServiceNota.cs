@@ -10,6 +10,7 @@ namespace ExerciciosPrimeiraSemana.BoletimEstudante
         private double nota3;
         private Aluno aluno;
 
+        //essa classe é responsável por executar a lógica de entrada de dados e salvar no repositório 
         public void Executar()
         {
             Console.WriteLine("Nome:");
@@ -32,8 +33,8 @@ namespace ExerciciosPrimeiraSemana.BoletimEstudante
                 Nota3 = nota3
             };
 
-            AlunoRepository.SalvarAluno(aluno);
-            AlunoRepository.ListarAlunos();
+            AlunoRepository.SalvarAluno(aluno);// Salva o aluno no repositório
+            AlunoRepository.ListarAlunos();// Lista todos os alunos salvos no repositório
         }
     }
 }

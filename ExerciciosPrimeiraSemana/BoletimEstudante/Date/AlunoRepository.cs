@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using ExerciciosPrimeiraSemana.Config;
+using Microsoft.Data.SqlClient;
 using System.Data;
 
 namespace ExerciciosPrimeiraSemana.BoletimEstudante.Date
@@ -6,17 +7,23 @@ namespace ExerciciosPrimeiraSemana.BoletimEstudante.Date
 
     namespace ExerciciosPrimeiraSemana.BoletimEstudante
     {
+        // Classe responsável por interagir com o banco de dados para operações relacionadas a Alunos
         public class AlunoRepository
         {
+            // Método para salvar um aluno no banco de dados
             public static void SalvarAluno(Aluno aluno)
             {
+                // Valida se o objeto aluno é nulo
                 try
                 {
-                    using var conexao = new SqlConnection(ConectionDB.StringConexao);
-                    conexao.Open();
+                    // Cria uma conexão com o banco de dados usando a string de conexão definida na configuração
+                    using var conexao = new SqlConnection(Configuracao.ConnectionString);
+                    conexao.Open();// Abre a conexão com o banco de dados
+                    // Define a query SQL para inserir um novo aluno na tabela Alunos
                     const string query = @"
                         INSERT INTO Alunos (Nome, Nota1, Nota2, Nota3)
                         VALUES (@Nome, @Nota1, @Nota2, @Nota3);";
+                    // Cria um comando SQL para executar a query definida acima
                     using var comando = new SqlCommand(query, conexao);
                     comando.Parameters.Add("@Nome", SqlDbType.NVarChar, 100).Value = aluno.Nome;
                     comando.Parameters.Add("@Nota1", SqlDbType.Float).Value = aluno.Nota1;
@@ -33,12 +40,13 @@ namespace ExerciciosPrimeiraSemana.BoletimEstudante.Date
                 }
             }
 
-
+            // Método para listar todos os alunos do banco de dados
             public static void ListarAlunos()
             {
+                // Valida se a conexão com o banco de dados foi estabelecida corretamente
                 try
                 {
-                    using var conexao = new SqlConnection(ConectionDB.StringConexao);
+                    using var conexao = new SqlConnection(Configuracao.ConnectionString);
                     conexao.Open();
                     const string query = "SELECT Nome, Nota1, Nota2, Nota3 FROM Alunos";
                     using var comando = new SqlCommand(query, conexao);
@@ -59,7 +67,6 @@ namespace ExerciciosPrimeiraSemana.BoletimEstudante.Date
                     Console.ResetColor();
                 }
             }
-        }
         }
     }
 }
