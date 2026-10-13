@@ -3,6 +3,9 @@ using ExerciciosPrimeiraSemana.Exercicio1;
 using ExerciciosPrimeiraSemana.ConversorValores;
 using ExerciciosPrimeiraSemana.NumeroAleatorio;
 using ExerciciosPrimeiraSemana.LojaService;
+using ExerciciosPrimeiraSemana.BoletimEstudante;
+using ExerciciosPrimeiraSemana.BoletimEstudante.Date.ExerciciosPrimeiraSemana.BoletimEstudante;
+using ExerciciosPrimeiraSemana.BoletimEstudante.Date;
 
 
 
@@ -37,8 +40,16 @@ internal partial class Program
         //var produto = new Produtos(); // Aqui estamos intaciando o Objeto da classe Produtos
         //ProdutoServices.ExibirDetalhes(produto);
 
-        ProdutosDescontoConvercao.Executar();
+        //ProdutosDescontoConvercao.Executar();
+       
+        TestDB.TestarConexao();
+        TestDB.CriarBancoETabela();
+        //Aluno aluno = new Aluno();
+        var serviceNota = new ServiceNota();
+        serviceNota.Executar();
 
+        //AlunoRepository.SalvarAluno(aluno);
+        //AlunoRepository.ListarAlunos();
 
 
 
