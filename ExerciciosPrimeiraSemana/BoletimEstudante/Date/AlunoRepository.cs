@@ -19,18 +19,21 @@ namespace ExerciciosPrimeiraSemana.BoletimEstudante.Date
                     // Cria uma conexão com o banco de dados usando a string de conexão definida na configuração
                     using var conexao = new SqlConnection(Configuracao.ConnectionString);
                     conexao.Open();// Abre a conexão com o banco de dados
+                    double media = aluno.Media; //calculando a media do aluno para salvar no banco de dados
                     // Define a query SQL para inserir um novo aluno na tabela Alunos
                     const string query = @"
-                        INSERT INTO Alunos (Nome, Nota1, Nota2, Nota3)
-                        VALUES (@Nome, @Nota1, @Nota2, @Nota3);";
+                        INSERT INTO Alunos (Nome, Nota1, Nota2, Nota3, Media)
+                        VALUES (@Nome, @Nota1, @Nota2, @Nota3, @Media);";
                     // Cria um comando SQL para executar a query definida acima
                     using var comando = new SqlCommand(query, conexao);
                     comando.Parameters.Add("@Nome", SqlDbType.NVarChar, 100).Value = aluno.Nome;
                     comando.Parameters.Add("@Nota1", SqlDbType.Float).Value = aluno.Nota1;
                     comando.Parameters.Add("@Nota2", SqlDbType.Float).Value = aluno.Nota2;
                     comando.Parameters.Add("@Nota3", SqlDbType.Float).Value = aluno.Nota3;
+                    comando.Parameters.Add("@Media", SqlDbType.Float).Value = media;
                     int linhasAfetadas = comando.ExecuteNonQuery();
                     Console.WriteLine($"{linhasAfetadas} linha(s) inserida(s). Aluno salvo com sucesso!");
+                    
                 }
                 catch (Exception ex)
                 {
@@ -48,7 +51,7 @@ namespace ExerciciosPrimeiraSemana.BoletimEstudante.Date
                 {
                     using var conexao = new SqlConnection(Configuracao.ConnectionString);
                     conexao.Open();
-                    const string query = "SELECT Nome, Nota1, Nota2, Nota3 FROM Alunos";
+                    const string query = "SELECT Nome, Nota1, Nota2, Nota3, Media FROM Alunos";
                     using var comando = new SqlCommand(query, conexao);
                     using var reader = comando.ExecuteReader();
                     while (reader.Read())
@@ -57,6 +60,7 @@ namespace ExerciciosPrimeiraSemana.BoletimEstudante.Date
                         Console.WriteLine($"N1:   {reader["Nota1"]}");
                         Console.WriteLine($"N2:   {reader["Nota2"]}");
                         Console.WriteLine($"N3:   {reader["Nota3"]}");
+                        Console.WriteLine($"Med:   {reader["Media"]}");
                         Console.WriteLine(new string('-', 20));
                     }
                 }
@@ -66,6 +70,25 @@ namespace ExerciciosPrimeiraSemana.BoletimEstudante.Date
                     Console.WriteLine($"Erro ao listar alunos: {ex.Message}");
                     Console.ResetColor();
                 }
+
+            }
+
+            //metodo para fazer update na tabela de alunos, 
+            public static void UpdateTable()
+            {
+                using var conexao =
+                    new SqlConnection(Configuracao.ConnectionString);
+
+                conexao.Open();
+
+                string query =
+                @"ALTER TABLE Alunos
+                    ADD Media FLOAT";
+
+                using var comando =
+                    new SqlCommand(query, conexao);
+
+                comando.ExecuteNonQuery();
             }
         }
     }

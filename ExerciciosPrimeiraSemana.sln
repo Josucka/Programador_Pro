@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.37710.0 d17.14
+# Visual Studio Version 18
+VisualStudioVersion = 18.10.12224.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExerciciosPrimeiraSemana", "ExerciciosPrimeiraSemana\ExerciciosPrimeiraSemana.csproj", "{C9042AF2-A8BE-4E3E-A9F9-E12524374B10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CadastroClientsAPI", "CadastroClientsAPI\CadastroClientsAPI.csproj", "{76B4A2BC-B986-4C1C-B7B1-DA07ECC65FF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C9042AF2-A8BE-4E3E-A9F9-E12524374B10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9042AF2-A8BE-4E3E-A9F9-E12524374B10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9042AF2-A8BE-4E3E-A9F9-E12524374B10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76B4A2BC-B986-4C1C-B7B1-DA07ECC65FF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76B4A2BC-B986-4C1C-B7B1-DA07ECC65FF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76B4A2BC-B986-4C1C-B7B1-DA07ECC65FF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76B4A2BC-B986-4C1C-B7B1-DA07ECC65FF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

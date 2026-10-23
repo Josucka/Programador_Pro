@@ -1,5 +1,6 @@
 ﻿using ExerciciosPrimeiraSemana.Config;
 using Microsoft.Data.SqlClient;
+using System.Data.Entity;
 
 namespace ExerciciosPrimeiraSemana.BoletimEstudante.Date
 {
